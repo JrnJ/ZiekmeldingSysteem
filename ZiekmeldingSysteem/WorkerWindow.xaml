@@ -1,0 +1,51 @@
+﻿<Window x:Class="ZiekmeldingSysteem.WorkerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZiekmeldingSysteem"
+        mc:Ignorable="d"
+        Title="WorkerWindow" Height="450" Width="800"
+        Style="{StaticResource DarkWindow}"
+        >
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="{Binding Employee.Fullname, StringFormat={}Welkom {0}!}" 
+                       Foreground="White" FontSize="24" HorizontalAlignment="Center"
+                       />
+
+            <Button Click="ZiekmeldenClick" Content="Ziek melden" 
+                    Margin="0,5,0,10" Height="30"
+                    />
+
+            <!-- Meldingen -->
+            <TextBlock Text="Mijn Ziekmeldingen" 
+                       Foreground="White" FontSize="12" HorizontalAlignment="Left"
+                       />
+            <ListView x:Name="lvStudents" ItemsSource="{Binding Reports, Mode=TwoWay}">
+                <ListView.Resources>
+                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                    </Style>
+                </ListView.Resources>
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn Header="Vanaf" DisplayMemberBinding="{Binding DateFrom}" />
+                        <GridViewColumn Header="Tot" DisplayMemberBinding="{Binding DateExpected}" />
+                        <GridViewColumn Header="Einde" DisplayMemberBinding="{Binding DateTo}" />
+                        <GridViewColumn Header="Beschrijving" DisplayMemberBinding="{Binding Description}" />
+
+                        <GridViewColumn Header="Beter melden">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Beter Melden" Margin="0" Tag="{Binding Id}" VerticalAlignment="Center" Click="BetermeldenClick"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <!-- /Meldingen -->
+        </StackPanel>
+    </Grid>
+</Window>

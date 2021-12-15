@@ -1,0 +1,26 @@
+﻿<Window x:Class="ZiekmeldingSysteem.ZiekmeldenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZiekmeldingSysteem"
+        mc:Ignorable="d"
+        Title="ZiekmeldenWindow" Height="450" Width="800"
+        Style="{StaticResource DarkWindow}"
+        >
+    <Grid>
+        <StackPanel DataContext="{Binding Report}" Style="{StaticResource CRUD_Form}">
+            <TextBlock Text="Vanaf" />
+            <DatePicker SelectedDate="{Binding DateFrom, Mode=TwoWay}" SelectedDateFormat="Short" />
+
+            <TextBlock Text="Verwachte einddatum" />
+            <DatePicker SelectedDate="{Binding DateExpected, Mode=TwoWay}" SelectedDateFormat="Short" />
+
+            <TextBlock Text="Reden" />
+            <TextBox Text="{Binding Description, Mode=TwoWay}" />
+
+            <Button Click="MeldZiekClick" Content="Melden"
+                    Style="{StaticResource LoginButton}" />
+        </StackPanel>
+    </Grid>
+</Window>
