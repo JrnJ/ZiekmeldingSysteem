@@ -30,7 +30,7 @@
                 </ListView.Resources>
                 <ListView.View>
                     <GridView AllowsColumnReorder="False">
-                        <GridViewColumn Header="Werknemer" DisplayMemberBinding="{Binding DateTo}" />
+                        <GridViewColumn Header="Werknemer" DisplayMemberBinding="{Binding Employee.Fullname}" />
                         <GridViewColumn Header="Vanaf" DisplayMemberBinding="{Binding DateFrom}" />
                         <GridViewColumn Header="Tot" DisplayMemberBinding="{Binding DateExpected}" />
                         <GridViewColumn Header="Einde" DisplayMemberBinding="{Binding DateTo}" />

@@ -59,5 +59,13 @@ namespace ZiekmeldingSysteem.Models
             get { return _dateExptected; }
             set { _dateExptected = value; }
         }
+
+        private Employee _employee;
+
+        public Employee Employee
+        {
+            get { return _employee; }
+            set { _employee = value; }
+        }
     }
 }

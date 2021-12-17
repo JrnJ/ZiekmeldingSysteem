@@ -43,5 +43,13 @@ namespace ZiekmeldingSysteem.Models
             get { return _departmentId; }
             set { _departmentId = value; }
         }
+
+        private ICollection<Report> _reports;
+
+        public ICollection<Report> Reports
+        {
+            get { return _reports; }
+            set { _reports = value; }
+        }
     }
 }

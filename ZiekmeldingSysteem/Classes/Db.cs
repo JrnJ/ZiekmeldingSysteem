@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZiekmeldingSysteem.Models;
+using System.Data.Entity;
 
 namespace ZiekmeldingSysteem.Classes
 {
@@ -22,6 +23,7 @@ namespace ZiekmeldingSysteem.Classes
             }
             catch (Exception ex)
             {
+                Console.WriteLine("*********************************************************\nERROR: " + ex.Message);
                 return null;
             }
         }
@@ -49,7 +51,7 @@ namespace ZiekmeldingSysteem.Classes
                 {
                     ObservableCollection<Report> reports = new ObservableCollection<Report>();
 
-                    foreach (Report report in ziekmeldenDb.Reports)
+                    foreach (Report report in ziekmeldenDb.Reports.Include(x => x.Employee))
                     {
                         if (report.EmployeeId == id)
                         {

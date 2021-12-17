@@ -68,6 +68,10 @@
     <Compile Include="BetermeldenWindow.xaml.cs">
       <DependentUpon>BetermeldenWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112170807540_Added Employee reports.cs" />
+    <Compile Include="Migrations\202112170807540_Added Employee reports.designer.cs">
+      <DependentUpon>202112170807540_Added Employee reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\State.cs" />
     <Compile Include="WorkerWindow.xaml.cs">
       <DependentUpon>WorkerWindow.xaml</DependentUpon>
@@ -135,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202112010847028_IntitalDatabaseSetup.resx">
       <DependentUpon>202112010847028_IntitalDatabaseSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112170807540_Added Employee reports.resx">
+      <DependentUpon>202112170807540_Added Employee reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
