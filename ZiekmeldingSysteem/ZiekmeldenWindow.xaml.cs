@@ -62,7 +62,9 @@ namespace ZiekmeldingSysteem
                     try
                     {
                         /*
-                         * Please use this code once to create a password
+                         * Please use this code once fill your credentials
+                         * I highly recommand creating an extra email for this as this is a bad thing to do
+                         * You have to use a gmail with the 'Access by less secure apps' enabled
                          * Never save your password in code!
                         */
                         //MailData dataToSave = new MailData()
