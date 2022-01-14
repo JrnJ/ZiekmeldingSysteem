@@ -62,6 +62,10 @@ namespace ZiekmeldingSysteem
 
         private void ZiekmeldenClick(object sender, RoutedEventArgs e)
         {
+            FileHandler<ObservableCollection<Report>>.SaveToXml(Reports, "C:/Dev/SerializationOverview2.xml");
+
+            ObservableCollection<Report> temp = FileHandler<ObservableCollection<Report>>.ReadFromXml("C:/Dev/SerializationOverview2.xml");
+
             ZiekmeldenWindow ziekmeldenWindow = new ZiekmeldenWindow(Employee);
             ziekmeldenWindow.ShowDialog();
 

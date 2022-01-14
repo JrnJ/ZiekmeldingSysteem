@@ -11,7 +11,7 @@ namespace ZiekmeldingSysteem.Classes
 {
     public static class Db
     {
-        // public:
+        #region GET READ
         public static Employee Login(string fullname, string password = "")
         {
             try
@@ -23,7 +23,7 @@ namespace ZiekmeldingSysteem.Classes
             }
             catch (Exception ex)
             {
-                Console.WriteLine("*********************************************************\nERROR: " + ex.Message);
+                Console.WriteLine("Login ERROR: " + ex.Message);
                 return null;
             }
         }
@@ -39,6 +39,7 @@ namespace ZiekmeldingSysteem.Classes
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Read Error: " + ex);
                 return null;
             }
         }
@@ -64,52 +65,8 @@ namespace ZiekmeldingSysteem.Classes
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Read Error: " + ex);
                 return null;
-            }
-        }
-
-        public static bool AddReport(Report report)
-        {
-            try
-            {
-                // Add user
-                using (ZiekmeldenDb ziekmeldenDb = new ZiekmeldenDb())
-                {
-                    // Add report
-                    ziekmeldenDb.Reports.Add(report);
-                    ziekmeldenDb.SaveChanges();
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-
-        public static bool ChangeReportStatus(int id)
-        {
-            try
-            {
-                using (ZiekmeldenDb ziekmeldenDb = new ZiekmeldenDb())
-                {
-                    Report report = ziekmeldenDb.Reports.FirstOrDefault(x => x.Id == id);
-
-                    if (report != null)
-                    {
-                        ziekmeldenDb.Reports.Remove(report);
-                        ziekmeldenDb.SaveChanges();
-
-                        return true;
-                    }
-
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
             }
         }
 
@@ -134,8 +91,64 @@ namespace ZiekmeldingSysteem.Classes
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Read Error: " + ex);
+
                 return null;
             }
         }
+        #endregion GET
+
+        #region CREATE
+        public static bool AddReport(Report report)
+        {
+            try
+            {
+                // Add user
+                using (ZiekmeldenDb ziekmeldenDb = new ZiekmeldenDb())
+                {
+                    // Add report
+                    ziekmeldenDb.Reports.Add(report);
+                    ziekmeldenDb.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Create Error: " + ex);
+
+                return false;
+            }
+        }
+        #endregion CREATE
+
+        #region UPDATE
+        public static bool ChangeReportStatus(int id)
+        {
+            try
+            {
+                using (ZiekmeldenDb ziekmeldenDb = new ZiekmeldenDb())
+                {
+                    Report report = ziekmeldenDb.Reports.FirstOrDefault(x => x.Id == id);
+
+                    if (report != null)
+                    {
+                        ziekmeldenDb.Reports.Remove(report);
+                        ziekmeldenDb.SaveChanges();
+
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Update Error: " + ex);
+
+                return false;
+            }
+        }
+        #endregion UPDATE
     }
 }

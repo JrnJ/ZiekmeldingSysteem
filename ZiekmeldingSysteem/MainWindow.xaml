@@ -9,14 +9,33 @@
         Style="{StaticResource DarkWindow}"
         >
     <Grid>
-        <StackPanel DataContext="{Binding Employee}" Style="{StaticResource CRUD_Form}">
-            <TextBlock Text="Gebruikersnaam"/>
-            <TextBox Text="{Binding Fullname}"/>
+        <StackPanel>
+            <StackPanel DataContext="{Binding Employee}" Style="{StaticResource CRUD_Form}">
+                <TextBlock Text="Login" HorizontalAlignment="Center" FontSize="24"/>
 
-            <TextBlock Text="Wachtwoord"/>
-            <TextBox Text="root"/>
+                <TextBlock Text="Gebruikersnaam" />
+                <Border>
+                    <Grid>
+                        <TextBlock Text="Gebruikersnaam" Tag="Gebruikersnaam" />
+                        <TextBox Text="{Binding Fullname}" />
+                    </Grid>
+                </Border>
 
-            <Button Content="Inloggen" Click="LoginClick" Style="{StaticResource LoginButton}"/>
+                <TextBlock Text="Wachtwoord"/>
+                <Border>
+                    <Grid>
+                        <TextBlock Text="Wachtwoord" />
+                        <TextBox Text="WWWWWWWWWWWWWWWW"/>
+                    </Grid>
+                </Border>
+
+                <Button Content="Inloggen" Click="LoginClick" Style="{StaticResource LoginButton}"/>
+            </StackPanel>
+
+            <Border BorderThickness="0" Height="40" Background="#404040">
+                <TextBox Text="Some Text" VerticalAlignment="Center" 
+                         Background="Transparent"/>
+            </Border>
         </StackPanel>
     </Grid>
 </Window>

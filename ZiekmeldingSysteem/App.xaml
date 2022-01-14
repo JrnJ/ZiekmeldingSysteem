@@ -41,20 +41,64 @@
         <!-- Form Style -->
         <Style TargetType="StackPanel" x:Key="CRUD_Form">
             <Setter Property="Margin" Value="10" />
-            
+
             <Style.Resources>
                 <Style TargetType="TextBlock">
                     <Setter Property="Foreground" Value="White" />
                 </Style>
 
-                <Style TargetType="TextBox">
-                    <Setter Property="Background" Value="#252525" />
-                    <Setter Property="Foreground" Value="White" />
-                    <Setter Property="CaretBrush" Value="White" />
-                    <Setter Property="BorderBrush" Value="#151515" />
-                    <Setter Property="BorderThickness" Value="2" />
-                    <Setter Property="Margin" Value="0, 0, 0, 6" />
-                    <Setter Property="Height" Value="20" />
+                <Style TargetType="Border">
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Height" Value="40" />
+                    <Setter Property="Width" Value="280" />
+                    <Setter Property="Background" Value="#404040" />
+                    <Setter Property="CornerRadius" Value="2" />
+
+                    <Style.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="FontSize" Value="16" />
+                            <Setter Property="Padding" Value="12,0,0,0" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="CaretBrush" Value="White" />
+                            <Setter Property="Background" Value="Transparent" />
+                        </Style>
+
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="FontSize" Value="16" />
+                            <Setter Property="Foreground" Value="Gray" />
+                            <Setter Property="Padding" Value="14,0,0,0" />
+                        </Style>
+
+                        <!--<Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <TextBox x:Name="textSource" Background="Transparent" Panel.ZIndex="2"
+                                                     Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}, 
+                                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                            <TextBox 
+                                                Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                                <TextBox.Style>
+                                                    <Style>
+                                                        <Setter Property="Foreground" Value="Transparent" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                                <Setter Property="Foreground" Value="LightGray"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBox.Style>
+                                            </TextBox>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>-->
+                    </Style.Resources>
                 </Style>
             </Style.Resources>
         </Style>
@@ -115,11 +159,12 @@
         </Style>
         <Style TargetType="Button" x:Key="LoginButton">
             <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Background" Value="#404040" />
+            <Setter Property="Margin" Value="0,14,0,0" />
 
             <Setter Property="Template">
                 <Setter.Value>

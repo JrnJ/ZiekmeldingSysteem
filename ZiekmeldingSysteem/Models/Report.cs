@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ZiekmeldingSysteem.Models
 {
@@ -62,6 +63,7 @@ namespace ZiekmeldingSysteem.Models
 
         private Employee _employee;
 
+        [XmlIgnore]
         public Employee Employee
         {
             get { return _employee; }

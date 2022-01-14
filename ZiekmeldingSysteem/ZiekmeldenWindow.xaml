@@ -19,6 +19,9 @@
             <TextBlock Text="Reden" />
             <TextBox Text="{Binding Description, Mode=TwoWay}" />
 
+            <TextBlock Text="Confirm email naar" />
+            <TextBox x:Name="tbConfirmEmail" />
+
             <Button Click="MeldZiekClick" Content="Melden"
                     Style="{StaticResource LoginButton}" />
         </StackPanel>
